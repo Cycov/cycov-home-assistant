@@ -1,55 +1,34 @@
-# cycov-home-assistant
+# Cycov Home Assistant
 
-An aggregation repository that holds Home Assistant add-ons, HACS Lovelace cards, and custom components. Each sub-project is managed as a **git subtree** sourced from its own upstream GitHub repository.
+An aggregation repository that holds Home Assistant add-ons, HACS Lovelace cards, and custom components. Each sub-project is managed as a **git subtree** sourced from its own upstream GitHub repository. The latest release will be present here, for other commits for any particular addon or app, navigate to the corresponding repository
 
-## Repository Structure
+# Installation
 
-```
-cycov-home-assistant/
-├── addons/              # Home Assistant add-ons
-├── custom_components/   # Custom integrations / components
-└── www/                 # HACS Lovelace cards & frontend resources
-```
+## Apps
+[![Open your Home Assistant instance and show the add app repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FCycov%2Fcycov-home-assistant)
 
-## Git Subtree Workflow
+1. In Home Assistant, go to **Settings → Add-ons → Add-on Store → ⋮ → Repositories**
+2. Add the repository URL: `https://github.com/Cycov/cycov-home-assistant`
+3. That's it, now you should see the apps
 
-### Add a new subtree
+## HACS
+TBD
 
-```bash
-git subtree add --prefix=<path>/<name> <remote-url> <branch> --squash
-```
+# App list
 
-**Examples:**
+For now, it's only the [Typescript Automation Engine](https://github.com/Cycov/typescript-automation-engine) which allows to write and run Home Assistant automations in TypeScript with a managed runtime, built-in code editor, and real-time logging. More information and documentation about this addon can be found [here](https://github.com/Cycov/cycov-home-assistant/tree/main/addons/typescript-automation-engine)
 
-```bash
-# Add a new add-on
-git subtree add --prefix=addons/my-addon https://github.com/user/my-addon main --squash
+# Cards
 
-# Add a custom component
-git subtree add --prefix=custom_components/my-component https://github.com/user/my-component main --squash
+- [Energy Consumption Topology](https://github.com/Cycov/ha-energy-consumption-topology) - A Home Assistant Lovelace card that displays your energy consumption as a tree topology with animated power-flow bubbles.
 
-# Add a Lovelace card
-git subtree add --prefix=www/my-card https://github.com/user/my-card main --squash
-```
+<img src="topo-horizontal layout.png" width="80%">
 
-### Update an existing subtree
 
-```bash
-git subtree pull --prefix=<path>/<name> <remote-url> <branch> --squash
-```
+- [Tiny thermostat card](https://github.com/Cycov/tiny-thermostat-card) - A compact Home Assistant Lovelace card that displays room temperature with heating/cooling control in a slim, slider-style bar. Also useful when using as thermostat for an AC and a separate radiator, instead of just one AC/HVAC for both heating and cooling.
 
-### Push local changes back to the upstream subtree
+<img src="ttc-demo.png" width="400px">
 
-```bash
-git subtree push --prefix=<path>/<name> <remote-url> <branch>
-```
+The mode can be changed via a modal on double press. Has a space for custom card, in this screenshot a bubble card is present, but the default thermostat card can be placed:
 
-## Sections
-
-| Directory | Contents |
-|-----------|----------|
-| [`addons/`](addons/) | Home Assistant supervisor add-ons |
-| [`custom_components/`](custom_components/) | Custom integrations loaded by Home Assistant |
-| [`www/`](www/) | Lovelace cards and other frontend resources (HACS) |
-
-See the `README.md` inside each directory for the list of included subtrees and per-section subtree commands.
+<img src="ttc-modal.png" width="500px">

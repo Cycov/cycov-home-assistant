@@ -1,0 +1,19 @@
+# Home Assistant secrets and sensitive files
+secrets.yaml
+known_devices.yaml
+.storage/
+
+# Home Assistant auto-generated files
+home-assistant.log
+home-assistant_v2.db
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
+
+# macOS
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
